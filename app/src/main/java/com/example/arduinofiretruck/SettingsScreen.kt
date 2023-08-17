@@ -84,12 +84,33 @@ fun SettingsScreen(navController: NavController) {
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             shape = RectangleShape,
             modifier = Modifier
-                .offset(y = 500.dp)
+                .offset(y = 300.dp)
                 .width(200.dp)
                 .size(100.dp)
         ) {
             Text(
-                text = "Github Code",
+                text = "Arduino Code",
+                color = colorResource(R.color.black),
+                fontSize = 25.sp
+            )
+        }
+        TextButton(
+            onClick = {
+                val urlIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/Colbertus/Arduino-Firetruck-App")
+                )
+                ctx.startActivity(urlIntent)
+            },
+            colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
+            shape = RectangleShape,
+            modifier = Modifier
+                 .offset(y = 400.dp)
+                 .width(200.dp)
+                 .size(100.dp)
+        ) {
+            Text(
+                text = "App Code",
                 color = colorResource(R.color.black),
                 fontSize = 30.sp
             )
@@ -100,8 +121,9 @@ fun SettingsScreen(navController: NavController) {
             },
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             modifier = Modifier
-                .offset(x = (-250).dp, y = (-225).dp)
+                .offset(x = (-250).dp, y = (-300).dp)
                 .size(75.dp)
+
 
         ) {
             Icon(
@@ -115,5 +137,8 @@ fun SettingsScreen(navController: NavController) {
         }
     }
 }
+
+
+
 
 

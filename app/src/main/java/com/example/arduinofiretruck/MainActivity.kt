@@ -1,12 +1,13 @@
 package com.example.arduinofiretruck
 
 import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothManager
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.os.Looper
 import android.text.style.BackgroundColorSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,18 +35,43 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.NavController
+import com.example.arduinofiretruck.ConnectThread.handler
 import com.example.arduinofiretruck.ui.theme.ArduinoFiretruckTheme
+import android.bluetooth.BluetoothManager as BluetoothManager1
+import android.bluetooth.BluetoothManager as BluetoothManager2
+import java.io.IOException
+import java.util.*
 
-class MainActivity : ComponentActivity() {
+public class MainActivity : AppCompatActivity() {
+    // private static final String TAG = "MY_APP_DEBUG_TAG";
+    // private static final int REQUEST_ENABLE_BT = 1;
+    // public static Handler handler;
+    // private final static int ERROR_READ = 0;
+    // BluetoothDevice arduinoBTModule = null;
+    // UUID arduinoUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState);
         setContent {
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
+            Navigation()
         }
+        // BluetoothManager bluetoothManager = getSystemService(BluetoothManager.class);
+        // BluetoothAdapter bluetoothAdapter = bluetoothManager.getAdapter();
+
+         /* handler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case ERROR_READ:
+                        Toast.makeText(getApplicationContext(), "Error reading data", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+
+        } */
 
     }
-
 }
 
 
@@ -83,7 +109,6 @@ fun Greeting(navController: NavController) {
         Button(
             onClick = {
                       // navController.navigate(Screen.BluetoothScreen.route)
-                       
 
 
             },
@@ -101,7 +126,9 @@ fun Greeting(navController: NavController) {
             )
         }
         Button(
-            onClick = {},
+            onClick = {
+
+            },
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             modifier = Modifier
                 .offset(x = 200.dp, y = (-350).dp)
