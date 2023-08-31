@@ -1,3 +1,6 @@
+/* This app will be used for controlling the Arduino Uno that will be used to control a model firetruck for the Huntsville Fire Department. Some included
+* functionalities are bluetooth, direct motor controlling, the water pump, the use of the speaker system, and  */
+
 package com.example.arduinofiretruck
 
 import android.bluetooth.BluetoothAdapter
@@ -52,6 +55,7 @@ import android.bluetooth.BluetoothManager as BluetoothManager2
 import java.io.IOException
 import java.util.*
 import androidx.compose.runtime.LaunchedEffect as LaunchedEffect1
+
 
 @RequiresApi(Build.VERSION_CODES.M)
 @AndroidEntryPoint
