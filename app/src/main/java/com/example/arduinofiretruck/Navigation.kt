@@ -33,6 +33,9 @@ fun Navigation() {
                 navController = navController
             )
         }
+        composable(route = Screen.SpeakerControlScreen.route) {
+            SpeakerControlScreen(navController = navController)
+        }
     }
 }
 

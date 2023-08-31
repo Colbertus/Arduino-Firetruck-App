@@ -62,7 +62,7 @@ fun SettingsScreen(navController: NavController) {
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             shape = RectangleShape,
             modifier = Modifier
-                .offset(y = 200.dp)
+                .offset(y = 100.dp)
                 .width(200.dp)
                 .size(100.dp)
         ) {
@@ -84,7 +84,7 @@ fun SettingsScreen(navController: NavController) {
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             shape = RectangleShape,
             modifier = Modifier
-                .offset(y = 300.dp)
+                .offset(y = 200.dp)
                 .width(200.dp)
                 .size(100.dp)
         ) {
@@ -105,7 +105,7 @@ fun SettingsScreen(navController: NavController) {
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             shape = RectangleShape,
             modifier = Modifier
-                 .offset(y = 400.dp)
+                 .offset(y = 300.dp)
                  .width(200.dp)
                  .size(100.dp)
         ) {
@@ -123,8 +123,6 @@ fun SettingsScreen(navController: NavController) {
             modifier = Modifier
                 .offset(x = (-250).dp, y = (-300).dp)
                 .size(75.dp)
-
-
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.baseline_subdirectory_arrow_left_24),

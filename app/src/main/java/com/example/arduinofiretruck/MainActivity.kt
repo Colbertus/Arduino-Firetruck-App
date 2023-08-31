@@ -43,8 +43,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import com.example.arduinofiretruck.ui.theme.ArduinoFiretruckTheme
+import dagger.hilt.android.AndroidEntryPoint
 import android.bluetooth.BluetoothManager as BluetoothManager1
 import android.bluetooth.BluetoothManager as BluetoothManager2
 import java.io.IOException
@@ -52,6 +54,7 @@ import java.util.*
 import androidx.compose.runtime.LaunchedEffect as LaunchedEffect1
 
 @RequiresApi(Build.VERSION_CODES.M)
+@AndroidEntryPoint
 public class MainActivity : AppCompatActivity() {
     private val bluetoothManager by lazy {
         applicationContext.getSystemService(BluetoothManager::class.java)
@@ -95,9 +98,13 @@ public class MainActivity : AppCompatActivity() {
         }
 
         setContent {
-            Navigation()
-            val viewModel = hiltViewModel<BluetoothViewModel>()
-            val state by viewModel.state.collectAsState()
+            ArduinoFiretruckTheme {
+                Navigation()
+            }
+            setTheme(R.style.Theme_ArduinoFiretruck)
+
+             val viewModel = hiltViewModel<BluetoothViewModel>()
+             val state by viewModel.state.collectAsState()
 
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
