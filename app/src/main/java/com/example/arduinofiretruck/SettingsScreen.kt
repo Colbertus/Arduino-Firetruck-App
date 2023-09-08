@@ -35,22 +35,28 @@ import androidx.navigation.NavController
 
 @Composable
 
+// The screen that will include all of the documentation for both the app and the arduino code along with the project manual
 fun SettingsScreen(navController: NavController) {
 
+    // The value used for the context of the screen and allowing transport to the web via a URL
     val ctx = LocalContext.current
 
+    // The column that will be used for the screen and all of its contents
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Red)
     ) {
+
         Text(
             style = MaterialTheme.typography.displayMedium,
             fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
             text = "Settings",
-            fontSize = 30.sp
+            fontSize = 50.sp
         )
+
+        // The button that takes the user to the online project manual
         TextButton(
             onClick = {
                 val urlIntent = Intent(
@@ -67,18 +73,20 @@ fun SettingsScreen(navController: NavController) {
                 .size(100.dp)
         ) {
             Text(
+                style = MaterialTheme.typography.displayMedium,
                 text = "Manual",
                 color = colorResource(R.color.black),
                 fontSize = 30.sp
             )
-
         }
+
+        // The button that takes the user to the github containing the code for the Arduino
         TextButton(
             onClick = {
-               val urlIntent = Intent(
-                   Intent.ACTION_VIEW,
-                   Uri.parse("https://github.com/Colbertus/Fire-Truck")
-               )
+                val urlIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/Colbertus/Fire-Truck")
+                )
                 ctx.startActivity(urlIntent)
             },
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
@@ -89,10 +97,13 @@ fun SettingsScreen(navController: NavController) {
                 .size(100.dp)
         ) {
             Text(
+                style = MaterialTheme.typography.displayMedium,
                 text = "Arduino Code",
                 color = colorResource(R.color.black),
                 fontSize = 25.sp
             )
+
+        // The button that takes the user to the github containing the code for the app
         }
         TextButton(
             onClick = {
@@ -105,23 +116,26 @@ fun SettingsScreen(navController: NavController) {
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             shape = RectangleShape,
             modifier = Modifier
-                 .offset(y = 300.dp)
-                 .width(200.dp)
-                 .size(100.dp)
+                .offset(y = 300.dp)
+                .width(200.dp)
+                .size(100.dp)
         ) {
             Text(
+                style = MaterialTheme.typography.displayMedium,
                 text = "App Code",
                 color = colorResource(R.color.black),
                 fontSize = 30.sp
             )
         }
+
+        // The button that takes the user back to the main screen
         Button(
             onClick = {
-                      navController.navigate(Screen.MainActivity.route)
+                navController.navigate(Screen.MainActivity.route)
             },
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             modifier = Modifier
-                .offset(x = (-250).dp, y = (-300).dp)
+                .offset(x = (-250).dp, y = (-350).dp)
                 .size(75.dp)
         ) {
             Icon(
@@ -131,7 +145,6 @@ fun SettingsScreen(navController: NavController) {
                 modifier = Modifier
                     .size(100.dp)
             )
-
         }
     }
 }

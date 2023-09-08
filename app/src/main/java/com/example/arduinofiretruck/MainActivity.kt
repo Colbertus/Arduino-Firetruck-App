@@ -1,5 +1,6 @@
 /* This app will be used for controlling the Arduino Uno that will be used to control a model firetruck for the Huntsville Fire Department. Some included
-* functionalities are bluetooth, direct motor controlling, the water pump, the use of the speaker system, and  */
+* functionalities are bluetooth, direct motor controlling, the water pump, and the use of the speaker system. Still currently a work in progress. Uses navigation,
+* compose, and bluetooth libraries for functionality. Created by Colby McClure at SMAP, with assistance of Philipp Lackner's code. */
 
 package com.example.arduinofiretruck
 
@@ -58,7 +59,10 @@ import androidx.compose.runtime.LaunchedEffect as LaunchedEffect1
 
 
 @RequiresApi(Build.VERSION_CODES.M)
+
+// Android Entry Point is required for displaying the view models
 @AndroidEntryPoint
+
 public class MainActivity : AppCompatActivity() {
     private val bluetoothManager by lazy {
         applicationContext.getSystemService(BluetoothManager::class.java)
@@ -73,7 +77,6 @@ public class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
-
         val enableBluetoothLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { /* not needed */ }
@@ -91,7 +94,6 @@ public class MainActivity : AppCompatActivity() {
                 )
             }
         }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             permissionLauncher.launch(
                 arrayOf(
@@ -101,15 +103,20 @@ public class MainActivity : AppCompatActivity() {
             )
         }
 
+        // Will set the main activity to the Navigation.kt file, which will direct the main screen to be the Greeting screen
         setContent {
             ArduinoFiretruckTheme {
-                Navigation()
+                val viewModel = hiltViewModel<BluetoothViewModel>()
+                val state by viewModel.state.collectAsState()
+                Navigation(
+                    state = state,
+                    onStartScan = viewModel:: startScan,
+                    onStopScan = viewModel::stopScan
+                )
             }
             setTheme(R.style.Theme_ArduinoFiretruck)
 
-             val viewModel = hiltViewModel<BluetoothViewModel>()
-             val state by viewModel.state.collectAsState()
-
+            // Sets the screen orientation to portrait and locks it there
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
         }

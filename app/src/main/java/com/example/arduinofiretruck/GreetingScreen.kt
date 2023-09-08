@@ -30,8 +30,10 @@ import androidx.navigation.NavController
 
 @Composable
 
+// The function used for the main menu screen of the app
 fun GreetingScreen(navController: NavController) {
 
+    // The overhead column that will be used for the main menu screen and all of its contents
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -51,9 +53,13 @@ fun GreetingScreen(navController: NavController) {
             text = "Welcome to the Firetruck App!",
             fontSize = 30.sp
         )
+
+        //The row that is still under the column that will be used for the buttons
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
+
+            //The button used for the bluetooth screen containing the icon and text
             Button(
                 onClick = {
                     navController.navigate(Screen.DeviceScreen.route)
@@ -80,6 +86,8 @@ fun GreetingScreen(navController: NavController) {
                 modifier = Modifier
                     .offset(x = (-110).dp, y = 110.dp)
             )
+
+            // The button used for the speaker control screen containing the icon and text
             Button(
                 onClick = {
                           navController.navigate(Screen.SpeakerControlScreen.route)
@@ -106,6 +114,8 @@ fun GreetingScreen(navController: NavController) {
                     .offset(x = (-40).dp, y = 110.dp)
             )
         }
+
+        // The firetruck icon that is placed in the center of the screen
         Icon(
             painter = painterResource(id = R.drawable.baseline_fire_truck_24),
             contentDescription = null,
@@ -114,8 +124,12 @@ fun GreetingScreen(navController: NavController) {
                 .size(300.dp)
                 .offset(y = 50.dp)
         )
+
+        // The button used for the remote controller screen containing the icon and text
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(Screen.FiretruckController.route)
+                      },
             colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
             modifier = Modifier
                 .offset(y = (100).dp)
@@ -137,6 +151,8 @@ fun GreetingScreen(navController: NavController) {
             modifier = Modifier
                 .offset(y = 110.dp)
         )
+
+        // Button used for the settings screen containing the icon
         Button(
             onClick = {
                 navController.navigate(Screen.SettingsScreen.route)
@@ -156,9 +172,3 @@ fun GreetingScreen(navController: NavController) {
         }
     }
 }
-
-/*@Composable
-@Preview(showBackground = true, device = "id:Kindle Fire 7 (2022)")
-fun GreetingScreenPreview() {
-    GreetingScreen(navController = NavController(LocalContext.current))
-} */
