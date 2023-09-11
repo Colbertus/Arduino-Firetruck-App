@@ -1,4 +1,4 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.screenswithnavigation
 
 // This class applies names to each screen that will be used for the app
 sealed class Screen(val route: String) {

@@ -1,8 +1,9 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.arduinofiretruck.domain.BluetoothController
+import com.example.arduinofiretruck.presentation.BluetoothUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

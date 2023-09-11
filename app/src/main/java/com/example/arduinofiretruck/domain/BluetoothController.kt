@@ -1,5 +1,6 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.domain
 
+import com.example.arduinofiretruck.ConnectionResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 

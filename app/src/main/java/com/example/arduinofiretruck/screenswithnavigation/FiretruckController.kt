@@ -1,4 +1,4 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.screenswithnavigation
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,20 +13,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.arduinofiretruck.R
 import com.manalkaff.jetstick.JoyStick
 
 
@@ -69,12 +64,29 @@ fun FiretruckController(navController: NavController) {
                     .offset(x = (-40).dp)
             )
         }
+
         JoyStick(
             Modifier.padding(30.dp),
-            size = 150.dp,
-            dotSize = 30.dp
+            size = 300.dp,
+            dotSize = 120.dp
         ){ x: Float, y: Float ->
             Log.d("JoyStick", "$x, $y")
+        }
+
+        Button(
+            onClick = {},
+            colors = ButtonDefaults.buttonColors(colorResource(R.color.white)),
+            modifier = Modifier
+                .size(125.dp)
+                .offset(y = 120.dp)
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.baseline_water_drop_24),
+                contentDescription = null,
+                tint = Color.Black,
+                modifier = Modifier
+                    .size(75.dp)
+            )
         }
     }
 

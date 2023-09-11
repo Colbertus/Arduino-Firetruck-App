@@ -1,4 +1,4 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.arduinofiretruck.domain.BluetoothDevice
+import com.example.arduinofiretruck.presentation.BluetoothUiState
 
 @Composable
 fun DeviceScreen(

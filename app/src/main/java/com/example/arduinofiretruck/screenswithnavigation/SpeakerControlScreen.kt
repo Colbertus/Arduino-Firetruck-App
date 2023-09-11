@@ -1,4 +1,4 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.screenswithnavigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -27,10 +27,10 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.arduinofiretruck.R
 
 @Composable
 

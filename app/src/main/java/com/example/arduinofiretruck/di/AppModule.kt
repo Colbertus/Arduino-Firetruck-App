@@ -1,12 +1,13 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.di
 
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.arduinofiretruck.domain.BluetoothController
+import com.example.arduinofiretruck.data.AndroidBluetoothController
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

@@ -1,13 +1,12 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.screenswithnavigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.arduinofiretruck.presentation.BluetoothScreen
+import com.example.arduinofiretruck.presentation.BluetoothUiState
+import com.example.arduinofiretruck.presentation.components.DeviceScreen
 
 @Composable
 

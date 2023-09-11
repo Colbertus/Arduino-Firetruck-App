@@ -1,4 +1,4 @@
-package com.example.arduinofiretruck
+package com.example.arduinofiretruck.data
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothManager
@@ -7,6 +7,9 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.arduinofiretruck.ConnectionResult
+import com.example.arduinofiretruck.domain.BluetoothController
+import com.example.arduinofiretruck.domain.BluetoothDeviceDomain
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
